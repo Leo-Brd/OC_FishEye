@@ -1,6 +1,3 @@
-# Base de code du projet P6 - Parcours Front-end
+<img width="512" height="128" alt="image" src="https://github.com/user-attachments/assets/0e420499-f33f-4a6f-b00f-5a231970875e" />
 
-## Démarrer le projet
-
-Rien à installer ici, il suffit d'ouvrir le fichier `index.html`.
-
+OpenClassrooms React Developer formation : project 6
