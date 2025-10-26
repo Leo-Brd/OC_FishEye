@@ -15,6 +15,16 @@ a {
     color: inherit;
 }
 
+.logo {
+    outline: none;
+}
+
+.logo:focus {
+    outline: 3px solid #D3573C;
+    outline-offset: 4px;
+    box-shadow: 0 0 0 4px #ffd6c1;
+    transition: outline 0.2s, box-shadow 0.2s;
+}
 
 header {
     display: flex;
@@ -29,9 +39,20 @@ h1 {
     margin-right: 100px;
 }
 
+header a {
+    outline: none;
+    margin-left: 100px;
+}
+
+header a:focus {
+    outline: 3px solid #D3573C;
+    outline-offset: 4px;
+    box-shadow: 0 0 0 4px #ffd6c1;
+    transition: outline 0.2s, box-shadow 0.2s;
+}
+
 .logo {
     height: 50px;
-    margin-left: 100px;
 }
 
 .photographer_section {
@@ -56,6 +77,13 @@ h1 {
     align-items: center;
 }
 
+.photographer-link:focus {
+    outline: 3px solid #D3573C;
+    outline-offset: 4px;
+    box-shadow: 0 0 0 4px #ffd6c1;
+    transition: outline 0.2s, box-shadow 0.2s;
+}
+
 .photographer_section article h2 {
     color: #D3573C;
     font-size: 36px;
@@ -67,6 +95,7 @@ h1 {
     width: 200px;
     object-fit: cover;
     border-radius: 50%;
+    margin-bottom: 15px;
 }
 
 .photographer_section article .photographer-location {
