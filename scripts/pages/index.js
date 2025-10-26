@@ -1,12 +1,12 @@
 async function getPhotographers() {
-    // On récupère les données depuis le fichier JSON
+    // We fetch the photographers data from the JSON file
     const response = await fetch('data/photographers.json');
     if (!response.ok) {
-        throw new Error('Erreur lors du chargement des photographes');
+        throw new Error('Error loading photographers');
     }
     const data = await response.json();
     console.log(data);
-    // On retourne le tableau photographers du JSON
+    // We return the photographers array from the JSON
     return { photographers: data.photographers };
 }
 
@@ -21,7 +21,7 @@ async function displayData(photographers) {
 }
 
 async function init() {
-    // Récupère les datas des photographes
+    // We fetch the photographers data
     const { photographers } = await getPhotographers();
     displayData(photographers);
 }
