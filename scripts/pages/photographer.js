@@ -20,7 +20,8 @@ async function displayPhotographer() {
     if (photographer) {
 
         fillPhotographerHeader(photographer);
-        // Tu peux aussi utiliser medias pour la suite
+        fillPhotographInfoBar(400, photographer.price);
+
         console.log('Médias:', medias);
     } else {
         console.log('Photographe non trouvé');

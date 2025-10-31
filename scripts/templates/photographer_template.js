@@ -1,3 +1,5 @@
+
+// FILL THE PHOTOGRAPHER HEADER
 function fillPhotographerHeader(photographer) {
     const header = document.querySelector('.photograph-header');
     if (!header) return;
@@ -43,4 +45,14 @@ function fillPhotographerHeader(photographer) {
     header.appendChild(left);
     if (contactBtn) header.appendChild(contactBtn);
     header.appendChild(right);
+}
+
+// FILL THE PHOTOGRAPHER INFO BAR
+function fillPhotographInfoBar(likes, price) {
+    const likesElem = document.getElementById('photograph-likes');
+    const priceElem = document.getElementById('photograph-price');
+    if (likesElem) {
+        likesElem.innerHTML = `${likes} <img src=\"assets/icons/dark_heart.svg\" alt=\"likes icon\" aria-hidden=\"true\">`;
+    }
+    if (priceElem) priceElem.innerHTML = `${price}€ / jour`;
 }

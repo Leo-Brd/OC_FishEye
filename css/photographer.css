@@ -3,12 +3,15 @@
 }
 
 .photograph-header {
+    position: relative;
     display: flex;
     justify-content: space-around;
     align-items: center;
     background-color: #FAFAFA;
     height: 300px;
     margin: 30px 100px 0 100px;
+    border-radius: 16px;
+    box-shadow: 0 2px 8px 0 rgba(0,0,0,0.07);
 }
 
 .photograph-header-left {
@@ -41,6 +44,31 @@
     object-fit: cover;
     border-radius: 50%;
     box-shadow: 0 2px 8px 0 rgba(0,0,0,0.07);
+}
+
+.photograph-info-bar {
+    position: absolute;
+    width: 376px;
+    height: 89px;
+    right: 40px;
+    bottom: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 16px;
+    background: #DB8876;
+    border-radius: 5px 5px 0 0;
+    box-shadow: 0 2px 8px 0 rgba(0,0,0,0.10);
+    font-size: 24px;
+    font-weight: 500;
+    z-index: 100;
+}
+
+.photograph-likes {
+    display: flex;
+    align-items: center;
+    gap: 8px;
 }
 
 .contact_button {
