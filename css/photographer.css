@@ -2,10 +2,6 @@
     display: none;
 }
 
-.header {
-    margin-left: 100px;
-}
-
 .photograph-header {
     display: flex;
     justify-content: space-around;
@@ -21,7 +17,7 @@
     gap: 15px;
 }
 
-.photograph-header-left h2{
+.photograph-header-left h1{
     font-size: 64px;
     font-weight: 400;
     color: #D3573C;

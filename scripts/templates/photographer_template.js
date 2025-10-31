@@ -1,38 +1,45 @@
 function fillPhotographerHeader(photographer) {
     const header = document.querySelector('.photograph-header');
     if (!header) return;
-    // On garde le bouton existant
+
+    // We keep the contact button if it exists
     const contactBtn = header.querySelector('.contact_button');
     header.innerHTML = '';
 
-    // Colonne gauche : infos
+    // Left column: info
     const left = document.createElement('div');
     left.className = 'photograph-header-left';
+    left.setAttribute('role', 'region');
+    left.setAttribute('aria-label', `Informations sur le photographe ${photographer.name}`);
 
-    const nameElem = document.createElement('h2');
+    const nameElem = document.createElement('h1');
     nameElem.textContent = photographer.name;
+    nameElem.setAttribute('id', 'photographer-name');
     left.appendChild(nameElem);
 
     const locationElem = document.createElement('p');
-    locationElem.className = 'photographer-header-location';
     locationElem.textContent = `${photographer.city}, ${photographer.country}`;
+    locationElem.setAttribute('aria-label', `Localisation : ${photographer.city}, ${photographer.country}`);
     left.appendChild(locationElem);
 
     const taglineElem = document.createElement('p');
-    taglineElem.className = 'photographer-header-tagline';
     taglineElem.textContent = photographer.tagline;
+    taglineElem.setAttribute('aria-label', `Slogan : ${photographer.tagline}`);
     left.appendChild(taglineElem);
 
-    // Colonne droite : photo
+    // Right column: photo
     const right = document.createElement('div');
     right.className = 'photograph-header-right';
+    right.setAttribute('role', 'region');
+    right.setAttribute('aria-label', `Portrait de ${photographer.name}`);
     const img = document.createElement('img');
     img.src = `assets/photographers/${photographer.portrait}`;
-    img.alt = photographer.name;
-    img.className = 'photograph-header-img';
+    img.alt = photographer.name || '';
     right.appendChild(img);
 
-    // Ajout dans le header (gauche, bouton, droite)
+    // Add to header (left, button, right)
+    header.setAttribute('role', 'region');
+    header.setAttribute('aria-labelledby', 'photographer-name');
     header.appendChild(left);
     if (contactBtn) header.appendChild(contactBtn);
     header.appendChild(right);
