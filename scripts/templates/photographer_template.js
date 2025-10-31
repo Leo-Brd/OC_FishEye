@@ -97,7 +97,7 @@ function media(m, photographerId) {
         mediaUrl = mediaElem.src;
     } else if (m.video) {
         mediaElem = document.createElement('video');
-        mediaElem.src = `assets/images/${m.video}`;
+        mediaElem.src = `assets/images/${photographerId}/${m.video}`;
         mediaElem.setAttribute('controls', '');
         mediaElem.className = 'media-video';
         mediaElem.setAttribute('aria-label', m.title + ', vidéo');
