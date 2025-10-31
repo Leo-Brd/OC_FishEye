@@ -1,4 +1,3 @@
-
 // Get photographer ID from URL
 function getPhotographerId() {
     const params = new URLSearchParams(window.location.search);
@@ -19,10 +18,9 @@ async function displayPhotographer() {
     const photographer = data.photographers.find(p => p.id == id);
     const medias = data.media.filter(m => m.photographerId == id);
     if (photographer) {
-        console.log('Nom:', photographer.name);
-        console.log('Ville:', photographer.city);
-        console.log('Pays:', photographer.country);
-        console.log('Slogan:', photographer.tagline);
+
+        fillPhotographerHeader(photographer);
+        // Tu peux aussi utiliser medias pour la suite
         console.log('Médias:', medias);
     } else {
         console.log('Photographe non trouvé');

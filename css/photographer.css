@@ -2,15 +2,54 @@
     display: none;
 }
 
+.header {
+    margin-left: 100px;
+}
+
 .photograph-header {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
     background-color: #FAFAFA;
     height: 300px;
-    margin: 0 100px;
+    margin: 30px 100px 0 100px;
+}
+
+.photograph-header-left {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.photograph-header-left h2{
+    font-size: 64px;
+    font-weight: 400;
+    color: #D3573C;
+}
+
+.photographer-header-location {
+    font-size: 24px;
+    font-weight: 400;
+    color: #901C1C;
+}
+
+.photographer-header-tagline {
+    font-size: 18px;
+    font-weight: 400;
+    color: #525252;
+}
+
+.photograph-header-right img {
+    height: 200px;
+    width: 200px;
+    object-fit: cover;
+    border-radius: 50%;
+    box-shadow: 0 2px 8px 0 rgba(0,0,0,0.07);
 }
 
 .contact_button {
     font-size: 20px;
-    font-weight: bold;
+    font-weight: 700;
     color: white;
     padding: 11px;
     width: 170px;

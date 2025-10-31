@@ -96,6 +96,7 @@ header a:focus {
     object-fit: cover;
     border-radius: 50%;
     margin-bottom: 15px;
+    box-shadow: 0 2px 8px 0 rgba(0,0,0,0.07);
 }
 
 .photographer_section article .photographer-location {
