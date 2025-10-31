@@ -18,11 +18,10 @@ async function displayPhotographer() {
     const photographer = data.photographers.find(p => p.id == id);
     const medias = data.media.filter(m => m.photographerId == id);
     if (photographer) {
-
         fillPhotographerHeader(photographer);
         fillPhotographInfoBar(400, photographer.price);
 
-        console.log('Médias:', medias);
+        fillPhotographGallery(medias, photographer.id);
     } else {
         console.log('Photographe non trouvé');
     }

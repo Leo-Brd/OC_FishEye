@@ -58,3 +58,71 @@ function fillPhotographInfoBar(likes, price) {
     }
     if (priceElem) priceElem.innerHTML = `${price}€ / jour`;
 }
+
+// FILL THE PHOTOGRAPHER GALLERY
+function fillPhotographGallery(medias, photographerId) {
+    const gallerySection = document.createElement('section');
+    gallerySection.className = 'photograph-gallery';
+    gallerySection.setAttribute('aria-label', 'Galerie photos du photographe');
+
+    medias.forEach(m => {
+        const card = media(m, photographerId);
+        gallerySection.appendChild(card);
+    });
+
+    // Insert the gallery after the info bar
+    const main = document.getElementById('main');
+    const infoBar = document.getElementById('photograph-info-bar');
+    if (main && infoBar) {
+        main.insertBefore(gallerySection, infoBar.nextSibling);
+    }
+}
+
+
+// Factory function for media cards
+function media(m, photographerId) {
+    const card = document.createElement('article');
+    card.className = 'media-card';
+    card.setAttribute('tabindex', '0');
+    card.setAttribute('aria-label', `${m.title}, ${m.likes} likes`);
+
+    let mediaElem;
+    let mediaUrl = '';
+    if (m.image) {
+        mediaElem = document.createElement('img');
+        mediaElem.src = `assets/images/${photographerId}/${m.image}`;
+        mediaElem.alt = m.title;
+        mediaElem.className = 'media-img';
+        mediaUrl = mediaElem.src;
+    } else if (m.video) {
+        mediaElem = document.createElement('video');
+        mediaElem.src = `assets/images/${m.video}`;
+        mediaElem.setAttribute('controls', '');
+        mediaElem.className = 'media-video';
+        mediaElem.setAttribute('aria-label', m.title);
+        mediaUrl = mediaElem.src;
+    }
+    if (mediaElem) {
+        const link = document.createElement('a');
+        link.href = mediaUrl;
+        link.setAttribute('aria-label', `Voir ${m.title}`);
+        link.appendChild(mediaElem);
+        card.appendChild(link);
+    }
+
+    const info = document.createElement('div');
+    info.className = 'media-info';
+
+    const title = document.createElement('h3');
+    title.className = 'media-title';
+    title.textContent = m.title;
+    info.appendChild(title);
+
+    const likes = document.createElement('span');
+    likes.className = 'media-likes';
+    likes.innerHTML = `${m.likes} <img src="assets/icons/brown_heart.svg" alt="likes" aria-hidden="true">`;
+    info.appendChild(likes);
+
+    card.appendChild(info);
+    return card;
+}
