@@ -63,10 +63,12 @@ function fillPhotographInfoBar(likes, price) {
 function fillPhotographGallery(medias, photographerId) {
     const gallerySection = document.createElement('section');
     gallerySection.className = 'photograph-gallery';
-    gallerySection.setAttribute('aria-label', 'Galerie photos du photographe');
+    gallerySection.setAttribute('role', 'list');
+    gallerySection.setAttribute('aria-label', 'Galerie de médias du photographe');
 
     medias.forEach(m => {
         const card = media(m, photographerId);
+        card.setAttribute('role', 'listitem');
         gallerySection.appendChild(card);
     });
 
@@ -81,17 +83,16 @@ function fillPhotographGallery(medias, photographerId) {
 
 // Factory function for media cards
 function media(m, photographerId) {
-    const card = document.createElement('article');
+    const card = document.createElement('figure');
     card.className = 'media-card';
     card.setAttribute('tabindex', '0');
-    card.setAttribute('aria-label', `${m.title}, ${m.likes} likes`);
 
     let mediaElem;
     let mediaUrl = '';
     if (m.image) {
         mediaElem = document.createElement('img');
         mediaElem.src = `assets/images/${photographerId}/${m.image}`;
-        mediaElem.alt = m.title;
+        mediaElem.alt = m.title + ', photo';
         mediaElem.className = 'media-img';
         mediaUrl = mediaElem.src;
     } else if (m.video) {
@@ -99,21 +100,22 @@ function media(m, photographerId) {
         mediaElem.src = `assets/images/${m.video}`;
         mediaElem.setAttribute('controls', '');
         mediaElem.className = 'media-video';
-        mediaElem.setAttribute('aria-label', m.title);
+        mediaElem.setAttribute('aria-label', m.title + ', vidéo');
         mediaUrl = mediaElem.src;
     }
     if (mediaElem) {
         const link = document.createElement('a');
         link.href = mediaUrl;
+        link.className = 'media-link';
         link.setAttribute('aria-label', `Voir ${m.title}`);
         link.appendChild(mediaElem);
         card.appendChild(link);
     }
 
-    const info = document.createElement('div');
+    const info = document.createElement('figcaption');
     info.className = 'media-info';
 
-    const title = document.createElement('h3');
+    const title = document.createElement('span');
     title.className = 'media-title';
     title.textContent = m.title;
     info.appendChild(title);
