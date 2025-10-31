@@ -20,11 +20,13 @@ function fillPhotographerHeader(photographer) {
     left.appendChild(nameElem);
 
     const locationElem = document.createElement('p');
+    locationElem.className = 'photographer-header-location';
     locationElem.textContent = `${photographer.city}, ${photographer.country}`;
     locationElem.setAttribute('aria-label', `Localisation : ${photographer.city}, ${photographer.country}`);
     left.appendChild(locationElem);
 
     const taglineElem = document.createElement('p');
+    taglineElem.className = 'photographer-header-tagline';
     taglineElem.textContent = photographer.tagline;
     taglineElem.setAttribute('aria-label', `Slogan : ${photographer.tagline}`);
     left.appendChild(taglineElem);
