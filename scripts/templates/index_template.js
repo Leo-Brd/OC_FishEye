@@ -47,6 +47,13 @@ function photographerTemplate(data) {
         priceElem.setAttribute('aria-label', `Tarif : ${price} euros par jour`);
         article.appendChild(priceElem);
 
+        // Make sure link is accessible via keyboard
+        link.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter' || e.key === ' ') {
+                window.location.href = link.href;
+            }
+        });
+
         return article;
     }
     return { name, picture, getUserCardDOM };

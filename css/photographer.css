@@ -65,7 +65,7 @@
 .photograph-gallery {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: space-around;
     row-gap: 30px;
     margin: 30px 100px 100px 100px;
 }

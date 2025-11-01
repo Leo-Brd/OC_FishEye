@@ -61,23 +61,15 @@ function fillPhotographInfoBar(likes, price) {
 
 // FILL THE PHOTOGRAPHER GALLERY
 function fillPhotographGallery(medias, photographerId) {
-    const gallerySection = document.createElement('section');
-    gallerySection.className = 'photograph-gallery';
-    gallerySection.setAttribute('role', 'list');
-    gallerySection.setAttribute('aria-label', 'Galerie de médias du photographe');
+    const gallerySection = document.getElementById('photograph-gallery');
+    if (!gallerySection) return;
+    gallerySection.innerHTML = '';
 
     medias.forEach(m => {
         const card = media(m, photographerId);
         card.setAttribute('role', 'listitem');
         gallerySection.appendChild(card);
     });
-
-    // Insert the gallery after the info bar
-    const main = document.getElementById('main');
-    const infoBar = document.getElementById('photograph-info-bar');
-    if (main && infoBar) {
-        main.insertBefore(gallerySection, infoBar.nextSibling);
-    }
 }
 
 
@@ -110,6 +102,13 @@ function media(m, photographerId) {
         link.setAttribute('aria-label', `Voir ${m.title}`);
         link.appendChild(mediaElem);
         card.appendChild(link);
+
+        // Make sure link is accessible via keyboard
+        link.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter' || e.key === ' ') {
+                link.click();
+            }
+        });
     }
 
     const info = document.createElement('figcaption');
