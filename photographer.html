@@ -25,6 +25,18 @@
         <span class="photograph-price" id="photograph-price" role="note" aria-label="Tarif journalier">
         </span>
       </div>
+      <div class="photograph-sort-bar">
+        <label for="custom-sort" class="sort-label">Trier par</label>
+        <div class="custom-select" id="custom-sort" tabindex="0" aria-haspopup="listbox" aria-expanded="false">
+          <span class="custom-select-selected">Popularité</span>
+          <img src="assets/icons/sort_arrow.svg" class="custom-select-arrow" alt="Ouvrir le menu de tri" />
+          <ul class="custom-select-options" role="listbox" tabindex="-1">
+            <li class="custom-select-option selected" data-value="popularity" role="option">Popularité</li>
+            <li class="custom-select-option" data-value="date" role="option">Date</li>
+            <li class="custom-select-option" data-value="title" role="option">Titre</li>
+          </ul>
+        </div>
+      </div>
       <section id="photograph-gallery" class="photograph-gallery" role="list" aria-label="Galerie de médias du photographe"></section>
 
     </main>
@@ -46,5 +58,6 @@
     <script src="scripts/templates/photographer_template.js"></script>
     <script src="/scripts/pages/photographer.js"></script>
     <script src="/scripts/utils/contactForm.js"></script>
+    <script src="/scripts/utils/sortMenu.js"></script>
   </body>
 </html>
