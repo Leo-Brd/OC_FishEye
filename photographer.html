@@ -26,14 +26,14 @@
         </span>
       </div>
       <div class="photograph-sort-bar">
-        <label for="custom-sort" class="sort-label">Trier par</label>
-        <div class="custom-select" id="custom-sort" tabindex="0" aria-haspopup="listbox" aria-expanded="false">
+        <label id="sort-label" for="custom-sort" class="sort-label">Trier par</label>
+        <div class="custom-select" id="custom-sort" tabindex="0" role="button" aria-haspopup="listbox" aria-expanded="false" aria-labelledby="sort-label">
           <span class="custom-select-selected">Popularité</span>
           <img src="assets/icons/sort_arrow.svg" class="custom-select-arrow" alt="Ouvrir le menu de tri" />
-          <ul class="custom-select-options" role="listbox" tabindex="-1">
-            <li class="custom-select-option selected" data-value="popularity" role="option">Popularité</li>
-            <li class="custom-select-option" data-value="date" role="option">Date</li>
-            <li class="custom-select-option" data-value="title" role="option">Titre</li>
+          <ul class="custom-select-options" role="listbox" tabindex="-1" aria-labelledby="sort-label" aria-activedescendant="custom-option-popularity">
+            <li id="custom-option-popularity" class="custom-select-option selected" data-value="popularity" role="option" aria-selected="true">Popularité</li>
+            <li id="custom-option-date" class="custom-select-option" data-value="date" role="option" aria-selected="false">Date</li>
+            <li id="custom-option-title" class="custom-select-option" data-value="title" role="option" aria-selected="false">Titre</li>
           </ul>
         </div>
       </div>
