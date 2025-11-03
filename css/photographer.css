@@ -239,18 +239,34 @@
 /***** CONTACT MODAL *****/
 #contact_modal {
     display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0,0,0,0.5);
+    z-index: 999;
+    justify-content: center;
+    align-items: center;
 }
 
-.modal {
+ .modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
     border-radius: 5px;
     background-color: #DB8876;
-    width: 50%;
+    width: 43%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    padding: 35px;
-    margin: auto;
+    padding: 10px 35px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+    max-height: 90vh;
+    overflow-y: auto
 }
 
 .modal header {
@@ -264,8 +280,17 @@
 
 .modal header h2 {
     font-size: 64px;
-    font-weight: normal;
+    font-weight: 400;
     text-align: center;
+}
+
+#modal-photographer-name {
+    font-size: 64px;
+    font-weight: 400;
+    text-align: left;
+    align-self: flex-start;
+    width: 100%;
+    margin-bottom: 20px;
 }
 
 form {
@@ -278,6 +303,7 @@ form {
 form label {
     color: #312E2E;
     font-size: 36px;
+    font-weight: 400;
 }
 
 form div {
@@ -293,4 +319,14 @@ form input {
     height: 68px;
     border: none;
     border-radius: 5px;
+}
+
+form textarea {
+    width: 100%;
+    resize: none;
+}
+
+.contact_button {
+    font-size: 18px;
+    font-weight: 700;
 }
