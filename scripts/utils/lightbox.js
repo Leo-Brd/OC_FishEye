@@ -21,13 +21,31 @@ function closeLightbox() {
 
 function showLightboxMedia(index) {
 	const media = lightboxMedias[index];
-	const img = document.getElementById('lightbox-image');
+	const container = document.querySelector('.lightbox-image-container');
 	const title = document.getElementById('lightbox-title');
-	if (media && img && title) {
-		img.src = media.src;
-		img.alt = media.title;
-		title.textContent = media.title;
+	if (!media || !container || !title) return;
+
+	// Clean up previous media
+	while (container.firstChild) {
+		container.removeChild(container.firstChild);
 	}
+
+	let mediaElem;
+	if (media.src.match(/\.(mp4|webm|ogg)$/i)) {
+		mediaElem = document.createElement('video');
+		mediaElem.src = media.src;
+		mediaElem.setAttribute('controls', '');
+		mediaElem.setAttribute('aria-label', media.title + ', vidéo');
+		mediaElem.className = 'lightbox-video';
+	} else {
+		mediaElem = document.createElement('img');
+		mediaElem.src = media.src;
+		mediaElem.alt = media.title;
+		mediaElem.id = 'lightbox-image';
+	}
+	container.appendChild(mediaElem);
+	container.appendChild(title);
+	title.textContent = media.title;
 }
 
 function nextLightboxMedia() {
