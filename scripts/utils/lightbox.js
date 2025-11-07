@@ -42,6 +42,8 @@ function showLightboxMedia(index) {
 		mediaElem.src = media.src;
 		mediaElem.alt = media.title;
 		mediaElem.id = 'lightbox-image';
+		mediaElem.setAttribute('role', 'img');
+		mediaElem.setAttribute('aria-label', media.title);
 	}
 	container.appendChild(mediaElem);
 	container.appendChild(title);

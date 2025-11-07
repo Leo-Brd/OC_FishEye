@@ -163,6 +163,9 @@
     width: 350px;
     height: 300px;
 }
+.media-link:hover {
+    cursor: pointer;
+}
 
 .media-card {
     background: #fff;
