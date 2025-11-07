@@ -86,6 +86,14 @@ function fillPhotographGallery(medias, photographerId) {
             });
         }
 
+        // Add keyboard listener to card for Enter/Space to open lightbox
+        card.addEventListener('keydown', function(e) {
+            if ((e.key === 'Enter' || e.key === ' ') && document.activeElement === card) {
+                e.preventDefault();
+                openLightbox(lightboxMedias, i);
+            }
+        });
+
         gallerySection.appendChild(card);
     });
 }

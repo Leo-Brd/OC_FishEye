@@ -48,6 +48,16 @@
     cursor: pointer;
 }
 
+.contact_button:hover {
+    background-color: #DB8876;
+    color: black;
+}
+
+.contact_button:focus {
+    background-color: #DB8876;
+    color: black;
+}
+
 .photograph-header-right img {
     height: 200px;
     width: 200px;

@@ -15,17 +15,18 @@
     </header>
     <main id="main">
 
-      <div class="photograph-header">
+      <section class="photograph-header">
         <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
-      </div>
+      </section>
 
-      <div class="photograph-info-bar" id="photograph-info-bar" role="region" aria-label="Informations principales du photographe">
+      <aside class="photograph-info-bar" id="photograph-info-bar" role="region" aria-label="Informations principales du photographe">
         <span class="photograph-likes" id="photograph-likes" role="group" aria-label="Nombre total de likes">
         </span>
         <span class="photograph-price" id="photograph-price" role="note" aria-label="Tarif journalier">
         </span>
-      </div>
-      <div class="photograph-sort-bar">
+      </aside>
+
+      <nav class="photograph-sort-bar">
         <label id="sort-label" for="custom-sort" class="sort-label">Trier par</label>
         <div class="custom-select" id="custom-sort" tabindex="0" role="button" aria-haspopup="listbox" aria-expanded="false" aria-labelledby="sort-label">
           <span class="custom-select-selected">Popularité</span>
@@ -36,7 +37,7 @@
             <li id="custom-option-title" class="custom-select-option" data-value="title" role="option" aria-selected="false">Titre</li>
           </ul>
         </div>
-      </div>
+      </nav>
       <section id="photograph-gallery" class="photograph-gallery" role="list" aria-label="Galerie de médias du photographe"></section>
 
     </main>
