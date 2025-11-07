@@ -20,8 +20,8 @@ async function displayPhotographer() {
     if (photographer) {
         fillPhotographerHeader(photographer);
         fillPhotographInfoBar(400, photographer.price);
-
         fillPhotographGallery(medias, photographer.id);
+        setupLikes();
     } else {
         console.log('Photographe non trouvé');
     }
