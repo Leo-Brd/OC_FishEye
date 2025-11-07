@@ -281,10 +281,11 @@
     cursor: pointer;
 }
 
-.modal header h2 {
+.modal header h1 {
     font-size: 64px;
     font-weight: 400;
     text-align: center;
+    color: black;
 }
 
 #modal-photographer-name {

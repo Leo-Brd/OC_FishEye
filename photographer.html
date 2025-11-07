@@ -43,30 +43,30 @@
 
     <!-- Contact Modal -->
     <div id="contact_modal">
-      <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" tabindex="-1">
+      <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title modal-photographer-name" tabindex="-1">
         <header>
-          <h2 id="modal-title">Contactez-moi</h2>
-          <img src="assets/icons/close.svg" onclick="closeModal()" tabindex="0" aria-label="Fermer la modale" />
+          <h1 id="modal-title">Contactez-moi</h2>
+          <img src="assets/icons/close.svg" onclick="closeModal()" tabindex="0" aria-label="Close Contact form" role="button"/>
         </header>
         <h3 id="modal-photographer-name"></h3>
         <form aria-labelledby="modal-title" autocomplete="on">
           <div>
-            <label for="prenom">Prénom</label>
-            <input type="text" name="prenom" id="prenom" required aria-required="true" autocomplete="given-name" />
+            <label id="label-prenom" for="prenom">Prénom</label>
+            <input type="text" name="prenom" id="prenom" required aria-required="true" autocomplete="given-name" aria-labelledby="label-prenom" />
           </div>
           <div>
-            <label for="nom">Nom</label>
-            <input type="text" name="nom" id="nom" required aria-required="true" autocomplete="family-name" />
+            <label id="label-nom" for="nom">Nom</label>
+            <input type="text" name="nom" id="nom" required aria-required="true" autocomplete="family-name" aria-labelledby="label-nom" />
           </div>
           <div>
-            <label for="email">Email</label>
-            <input type="email" name="email" id="email" required aria-required="true" autocomplete="email" />
+            <label id="label-email" for="email">Email</label>
+            <input type="email" name="email" id="email" required aria-required="true" autocomplete="email" aria-labelledby="label-email" />
           </div>
           <div>
-            <label for="message">Votre message</label>
-            <textarea name="message" id="message" rows="10" required aria-required="true"></textarea>
+            <label id="label-message" for="message">Votre message</label>
+            <textarea name="message" id="message" rows="10" required aria-required="true" aria-labelledby="label-message"></textarea>
           </div>
-          <button class="contact_button" type="submit">Envoyer</button>
+          <button class="contact_button" type="submit" role="button" aria-label="Send">Envoyer</button>
         </form>
 			</div>
 		</div>
