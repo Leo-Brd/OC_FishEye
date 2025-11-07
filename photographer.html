@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
   <head>
     <link href="css/style.css" rel="stylesheet" type="text/css" />
     <meta charset="utf-8">
@@ -40,6 +40,8 @@
       <section id="photograph-gallery" class="photograph-gallery" role="list" aria-label="Galerie de médias du photographe"></section>
 
     </main>
+
+    <!-- Contact Modal -->
     <div id="contact_modal">
       <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" tabindex="-1">
         <header>
@@ -68,9 +70,30 @@
         </form>
 			</div>
 		</div>
+
+    <!-- Lightbox Modal for viewing photos -->
+    <div id="lightbox_modal" style="display:none;" role="dialog" aria-modal="true" aria-labelledby="lightbox-title" tabindex="-1">
+      <div class="lightbox-modal-content">
+        <button class="lightbox-close" aria-label="Fermer la modale" tabindex="0">
+          <img src="assets/icons/close.svg" alt="Fermer" />
+        </button>
+        <button class="lightbox-arrow lightbox-arrow-left" aria-label="Photo précédente" tabindex="0">
+          <img src="assets/icons/arrow_left.svg" alt="Précédent" />
+        </button>
+        <div class="lightbox-image-container">
+          <img id="lightbox-image" src="" alt="" />
+          <figcaption id="lightbox-title"></figcaption>
+        </div>
+        <button class="lightbox-arrow lightbox-arrow-right" aria-label="Photo suivante" tabindex="0">
+          <img src="assets/icons/arrow_right.svg" alt="Suivant" />
+        </button>
+      </div>
+    </div>
+
     <script src="scripts/templates/photographer_template.js"></script>
     <script src="/scripts/pages/photographer.js"></script>
     <script src="/scripts/utils/contactForm.js"></script>
     <script src="/scripts/utils/sortMenu.js"></script>
+    <script src="/scripts/utils/lightbox.js"></script>
   </body>
 </html>

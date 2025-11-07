@@ -65,9 +65,27 @@ function fillPhotographGallery(medias, photographerId) {
     if (!gallerySection) return;
     gallerySection.innerHTML = '';
 
-    medias.forEach(m => {
+    // Prepare array for lightbox
+    const lightboxMedias = medias.map(m => {
+        let src = '';
+        if (m.image) src = `assets/images/${photographerId}/${m.image}`;
+        else if (m.video) src = `assets/images/${photographerId}/${m.video}`;
+        return { src, title: m.title };
+    });
+
+    medias.forEach((m, i) => {
         const card = media(m, photographerId);
         card.setAttribute('role', 'listitem');
+
+        // Add click listener to open lightbox
+        const link = card.querySelector('.media-link');
+        if (link) {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                openLightbox(lightboxMedias, i);
+            });
+        }
+
         gallerySection.appendChild(card);
     });
 }
@@ -97,7 +115,6 @@ function media(m, photographerId) {
     }
     if (mediaElem) {
         const link = document.createElement('a');
-        link.href = mediaUrl;
         link.className = 'media-link';
         link.setAttribute('aria-label', `Voir ${m.title}`);
         link.appendChild(mediaElem);
