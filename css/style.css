@@ -100,19 +100,19 @@ header a:focus {
 }
 
 .photographer_section article .photographer-location {
-    font-size: 13px;
+    font-size: 18px;
     font-weight: 400;
     color: #901C1C;
 }
 
 .photographer_section article .photographer-tagline {
-    font-size: 10px;
+    font-size: 14px;
     font-weight: 400;
     color: black;
 }
 
 .photographer_section article .photographer-price {
-    font-size: 9px;
+    font-size: 12px;
     font-weight: 400;
     color: #757575;
 }
