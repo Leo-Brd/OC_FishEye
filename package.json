@@ -1,6 +1,9 @@
 {
+  "scripts": {
+    "lint": "eslint ."
+  },
   "devDependencies": {
-    "eslint": "^9.38.0",
+    "eslint": "^9.39.1",
     "globals": "^16.4.0"
   }
 }

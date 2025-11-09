@@ -1,0 +1,15 @@
+{
+  "env": {
+    "browser": true,
+    "es2021": true
+  },
+  "extends": "eslint:recommended",
+  "rules": {
+    "no-unused-vars": "warn",
+    "no-console": "warn",
+    "eqeqeq": "error",
+    "semi": ["error", "always"],
+    "quotes": ["warn", "double"],
+    "indent": ["warn", 2]
+  }
+}
