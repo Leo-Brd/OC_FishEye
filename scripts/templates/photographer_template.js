@@ -96,6 +96,27 @@ function fillPhotographGallery(medias, photographerId) {
 
         gallerySection.appendChild(card);
     });
+
+    // Add fake elements to complete the last row
+    const cardWidth = 350;
+    const galleryStyle = window.getComputedStyle(gallerySection);
+    const galleryWidth = gallerySection.clientWidth || parseInt(galleryStyle.width);
+    const itemsPerRow = Math.floor(galleryWidth / cardWidth);
+    if (itemsPerRow > 1) {
+        const remainder = medias.length % itemsPerRow;
+        if (remainder !== 0) {
+            const missing = itemsPerRow - remainder;
+            for (let i = 0; i < missing; i++) {
+                const fake = document.createElement('figure');
+                fake.className = 'media-card';
+                fake.style.visibility = 'hidden';
+                fake.style.pointerEvents = 'none';
+                fake.style.width = cardWidth + 'px';
+                fake.style.height = '300px';
+                gallerySection.appendChild(fake);
+            }
+        }
+    }
 }
 
 
