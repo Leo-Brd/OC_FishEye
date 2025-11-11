@@ -95,6 +95,12 @@
     padding: 0 18px;
     height: 56px;
 }
+
+.custom-select:focus {
+    outline: 3px solid #901C1C;
+    outline-offset: 2px;
+    box-shadow: 0 0 0 4px #ffd6c1;
+}
 .custom-select-selected {
     flex: 1;
     padding: 0;
@@ -158,6 +164,9 @@
 .custom-select-option:focus {
     background: #D3573C;
     color: #fff;
+    outline: 3px solid #901C1C;
+    outline-offset: 2px;
+    box-shadow: 0 0 0 4px #ffd6c1;
 }
 
 /***** PHOTOS GALLERY *****/

@@ -54,7 +54,8 @@ function fillPhotographInfoBar(likes, price) {
     const likesElem = document.getElementById('photograph-likes');
     const priceElem = document.getElementById('photograph-price');
     if (likesElem) {
-        likesElem.innerHTML = `${likes} <img src=\"assets/icons/dark_heart.svg\" alt=\"likes icon\" aria-hidden=\"true\">`;
+        likesElem.innerHTML = `${likes} <img src="assets/icons/dark_heart.svg" alt="likes icon" aria-label="likes au total">`;
+        likesElem.setAttribute('aria-label', `Nombre total de likes : ${likes}`);
     }
     if (priceElem) priceElem.innerHTML = `${price}€ / jour`;
 }
@@ -127,7 +128,6 @@ function media(m, photographerId) {
     card.setAttribute('tabindex', '0');
 
     let mediaElem;
-    let mediaUrl = '';
     if (m.image) {
         mediaElem = document.createElement('img');
         mediaElem.src = `assets/images/${photographerId}/${m.image}`;
@@ -139,6 +139,7 @@ function media(m, photographerId) {
         mediaElem.src = `assets/images/${photographerId}/${m.video}`;
         mediaElem.setAttribute('controls', '');
         mediaElem.className = 'media-video';
+        mediaElem.alt = m.title + ', vidéo';
         mediaElem.setAttribute('aria-label', m.title + ', vidéo');
         mediaUrl = mediaElem.src;
     }
@@ -167,7 +168,8 @@ function media(m, photographerId) {
 
     const likes = document.createElement('span');
     likes.className = 'media-likes';
-    likes.innerHTML = `${m.likes} <img src="assets/icons/brown_heart.svg" alt="likes" aria-hidden="true">`;
+    likes.innerHTML = `${m.likes} <img src="assets/icons/brown_heart.svg" alt="likes" aria-label="likes">`;
+    likes.setAttribute('aria-label', `Nombre de likes : ${m.likes}`);
     info.appendChild(likes);
 
     card.appendChild(info);

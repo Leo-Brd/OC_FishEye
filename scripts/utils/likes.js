@@ -15,13 +15,19 @@ function setupLikes() {
     // Update info bar likes
     function updateInfoBar() {
         if (infoBarLikes) {
-            infoBarLikes.innerHTML = `${totalLikes} <img src="assets/icons/dark_heart.svg" alt="likes icon" aria-hidden="true">`;
+            infoBarLikes.innerHTML = `${totalLikes} <img src="assets/icons/dark_heart.svg" alt="likes icon" aria-label="likes au total">`;
         }
     }
 
     // Setup click listeners for like buttons
     likeButtons.forEach((btn, i) => {
-        btn.addEventListener('click', function(e) {
+        // Accessibilité : focusable, role, label
+        btn.setAttribute('tabindex', '0');
+        btn.setAttribute('role', 'button');
+        btn.setAttribute('aria-label', 'Ajouter un like');
+        btn.setAttribute('aria-pressed', 'false');
+
+        function addLike(e) {
             e.preventDefault();
             const parent = btn.closest('.media-likes');
             let countSpan = parent.childNodes[0];
@@ -34,6 +40,12 @@ function setupLikes() {
             btn.setAttribute('aria-pressed', 'true');
             btn.style.filter = 'grayscale(1)';
             btn.style.pointerEvents = 'none';
+        }
+        btn.addEventListener('click', addLike);
+        btn.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter' || e.key === ' ') {
+                addLike(e);
+            }
         });
     });
     updateInfoBar();

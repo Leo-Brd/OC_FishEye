@@ -35,10 +35,60 @@ function setupCustomSortMenu() {
     customSelect.addEventListener('keydown', e => {
         if (e.key === 'Enter' || e.key === ' ') {
             e.preventDefault();
-            customSelect.getAttribute('aria-expanded') === 'true' ? closeMenu() : openMenu();
+            if (customSelect.getAttribute('aria-expanded') !== 'true') {
+                openMenu();
+                // Focus first option
+                const first = optionElements.find(opt => opt.style.display !== 'none');
+                if (first) first.focus();
+            } else {
+                closeMenu();
+            }
         } else if (e.key === 'Escape') {
             closeMenu();
+            customSelect.focus();
         }
+    });
+
+    // Make each option focusable
+    optionElements.forEach(opt => {
+        opt.setAttribute('tabindex', '0');
+        opt.addEventListener('keydown', e => {
+            if (e.key === 'Tab') {
+                // Tab navigation is native
+                return;
+            }
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                selected.textContent = opt.textContent;
+                optionElements.forEach(o => {
+                    o.classList.remove('selected');
+                    o.setAttribute('aria-selected', 'false');
+                });
+                opt.classList.add('selected');
+                opt.setAttribute('aria-selected', 'true');
+                options.setAttribute('aria-activedescendant', opt.id);
+                closeMenu();
+                customSelect.focus();
+                // We call the sort function like a click
+                if (typeof window.setupSortMenuIntegration === 'function') {
+                    opt.dispatchEvent(new MouseEvent('mousedown', {bubbles: true}));
+                }
+            }
+            
+            // Arrow up/down to navigate options
+            if (e.key === 'ArrowDown') {
+                e.preventDefault();
+                let idx = optionElements.indexOf(opt);
+                do { idx = (idx + 1) % optionElements.length; } while(optionElements[idx].style.display === 'none');
+                optionElements[idx].focus();
+            }
+            if (e.key === 'ArrowUp') {
+                e.preventDefault();
+                let idx = optionElements.indexOf(opt);
+                do { idx = (idx - 1 + optionElements.length) % optionElements.length; } while(optionElements[idx].style.display === 'none');
+                optionElements[idx].focus();
+            }
+        });
     });
 
     // Handle option selection
